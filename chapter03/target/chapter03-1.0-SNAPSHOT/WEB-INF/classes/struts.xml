@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+<!--    配置常量-->
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <!--配置包-->
+    <package name="default" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+
+
+        <action name="login" class="com.study.action.LoginAction">
+            <result name="success">
+                /success.jsp
+            </result>
+
+            <result name="error">
+                /error.jsp
+            </result>
+        </action>
+
+        <action name="login2" class="com.study.action.LoginAction2">
+            <result name="success">
+                /success.jsp
+            </result>
+
+            <result name="error">
+                /error.jsp
+            </result>
+        </action>
+
+        <action name="login3" class="com.study.action.LoginAction3">
+            <result name="success">
+                /success.jsp
+            </result>
+
+            <result name="error">
+                /error.jsp
+            </result>
+
+            <result name="input">
+                /3.2/login.jsp
+            </result>
+        </action>
+
+        <action name="clickNum" class="com.study.action.ClickNumAction">
+            <result name="success">
+                /3.2/clickNum.jsp
+            </result>
+
+        </action>
+
+        <action name="login4" class="com.study.action.LoginAction4">
+            <result name="success">
+                /3.2/first.jsp
+            </result>
+            <result name="error">
+                /error.jsp
+            </result>
+        </action>
+
+        <action name="product" class="com.study.action.ProductAction">
+            <result name="edit">
+                /3.3/edit.jsp
+            </result>
+            <result name="del">
+                /3.3/del.jsp
+            </result>
+        </action>
+
+<!--        测试使用通配符-->
+        <action name="*Product" class="com.study.action.ProductAction" method="{1}">
+<!--            method="{1}"  中的1表示 匹配第一个 * -->
+            <result name="edit">
+                /3.3/edit.jsp
+            </result>
+
+            <result name="del">
+                /3.3/del.jsp
+            </result>
+        </action>
+
+        <action name="login5" class="com.study.action.LoginAction5">
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+            <result name="success">
+                success.jsp
+            </result>
+            <result name="error">
+                error.jsp
+            </result>
+        </action>
+
+    </package>
+
+
+
+</struts>
